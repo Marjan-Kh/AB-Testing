@@ -47,8 +47,7 @@ Evaluation metrics can be chosen on the basis of business needs. The metrics tha
 - Net conversion: The number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.0075)
 
 #### Experiment Sizing
-Given α=0.05 (significance level ) and β=0.2, we want to estimate how many pageviews total we need to collect in the experiment. This amount will be divided into two groups: control and experiment.
+Given α=0.05 and β=0.2, we want to estimate how many pageviews total we need to collect in the experiment per metric. For that perpuse we need to calculate the minimum \
+number of sample size (the minimum number of cookies). 
 
-#### Calculate Experiment Sample Size
-The number of samples for the experiment per metric. We need to calculate the minimum number of sample size, the minimum number of cookies, to achieve the desired statistical power.
 
