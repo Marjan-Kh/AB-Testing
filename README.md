@@ -32,15 +32,15 @@ The unit of diversion is a cookie, although if the student enrolls in the free t
 
 #### Metric Choices: Invariant/Evaluation
 
-##### Invariant metrics
+#### Invariant metrics
 Invariant metrics are the ones used for sanity checks and will remain invariant throughout the experiment.
 
 - Number of cookies: The number of unique cookies to view the course overview page. (dmin=3000)
 - Number of clicks: The number of unique cookies to click the “Start free trial” button (which happens before the free trial screener is a trigger).(dmin=240)
 - Click-through-probability: The number of unique cookies to click the “Start free trial” button divided by number of unique cookies to view the course overview page.(dmin=0.01)
 
-##### Evaluation Metrics
-Evaluation metrics are the ones that we care about, the metrics that must be observed for consideration in the decision to launch the experiment.
+#### Evaluation Metrics
+Evaluation metrics can be chosen on the basis of business needs. The metrics that must be observed for consideration in the decision to launch the experiment.
 
 - Gross conversion: The number of user-ids to complete checkout and enroll in the free trial divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.01)
 - Retention: The number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by number of user-ids to complete checkout. (dmin=0.01)
@@ -49,5 +49,6 @@ Evaluation metrics are the ones that we care about, the metrics that must be obs
 #### Experiment Sizing
 Given α=0.05 (significance level ) and β=0.2, we want to estimate how many pageviews total we need to collect in the experiment. This amount will be divided into two groups: control and experiment.
 
-#### Calculate Sample Size per Metric
-Calculate the number of samples required for the experiment per metric. 
+#### Calculate Experiment Sample Size
+The number of samples for the experiment per metric. We need to calculate the minimum number of sample size, the minimum number of cookies, to achieve the desired statistical power.
+
