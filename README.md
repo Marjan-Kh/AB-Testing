@@ -46,12 +46,8 @@ Evaluation metrics are the ones that we care about, the metrics that must be obs
 - Retention: The number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by number of user-ids to complete checkout. (dmin=0.01)
 - Net conversion: The number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.0075)
 
-#### Estimation of the Standard Deviation for each Metric Analitically
-
-$SD = \sqrt{\frac{\hat{p}*(1-\hat{p})}{n}} $
-
 #### Experiment Sizing
-Given $\alpha$=0.05 (significance level ) and $\beta$=0.2, we want to estimate how many pageviews total we need to collect in the experiment. This amount will be divided into two groups: control and experiment.
+Given α=0.05 (significance level ) and β=0.2, we want to estimate how many pageviews total we need to collect in the experiment. This amount will be divided into two groups: control and experiment.
 
 #### Calculate Sample Size per Metric
 Calculate the number of samples required for the experiment per metric. 
