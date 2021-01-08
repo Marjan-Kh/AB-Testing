@@ -1,4 +1,4 @@
-# A/B testing Project Instructions:
+# A/B-Testing Project Instructions:
 This program provides a walkthrough of the A/B testing course's final project provided by an online learning platform named Udacity. 
 The primary goal of Udacity is to decrease early cancellation to improve the overall student experience and coaches' capacity to support students who are likely to complete the course.
 
@@ -30,7 +30,7 @@ We need to perform a pre-experiment analysis before running the experiment:
 #### Unit of diversion
 The unit of diversion is a cookie, although if the student enrolls in the free trial, they are tracked by user-id from that point forward. The same user-id cannot enroll in the free trial twice. For users that do not enroll, their user-id is not tracked in the experiment, even if they were signed in when they visited the course overview page.
 
-#### Metric Choice
+#### Metric Choices: 
 ##### Invariant metrics
 Invariant metrics are the ones used for sanity checks and will remain invariant throughout the experiment.
 
@@ -62,15 +62,15 @@ We need to perform a pre-experiment analysis before running the experiment:
 The unit of diversion is a cookie, although if the student enrolls in the free trial, they are tracked by user-id from that point forward. The same user-id cannot enroll in the free trial twice. For users that do not enroll, their user-id is not tracked in the experiment, even if they were signed in when they visited the course overview page.
 
 
-#### Metric Choice
-##### Invariant metrics
+#### Metric Choice: Invariant/Evaluation
+- Invariant metrics
 Invariant metrics are the ones used for sanity checks and will remain invariant throughout the experiment.
-- Number of cookies: That is, number of unique cookies to view the course overview page.
-- Number of clicks: That is, the number of unique cookies to click the “Start free trial” button (which happens before the free trial screener is a trigger).
-- Click-through-probability: That is, number of unique cookies to click the “Start free trial” button divided by number of unique cookies to view the course overview page.
+-- Number of cookies: That is, number of unique cookies to view the course overview page.
+-- Number of clicks: That is, the number of unique cookies to click the “Start free trial” button (which happens before the free trial screener is a trigger).
+-- Click-through-probability: That is, number of unique cookies to click the “Start free trial” button divided by number of unique cookies to view the course overview page.
 
 #### Evaluation Metrics
-Evaluation metrics are the ones that we care about, the metrics that must be observed for consideration in the decision to launch the experiment.
-- Gross conversion: That is, the number of user-ids to complete checkout and enroll in the free trial divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.01)
-- Retention: That is, the number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by number of user-ids to complete checkout. (dmin=0.01)
-- Net conversion: That is, number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.0075)
+- Evaluation metrics are the ones that we care about, the metrics that must be observed for consideration in the decision to launch the experiment.
+-- Gross conversion: That is, the number of user-ids to complete checkout and enroll in the free trial divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.01)
+-- Retention: That is, the number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by number of user-ids to complete checkout. (dmin=0.01)
+-- Net conversion: That is, number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.0075)
