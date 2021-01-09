@@ -13,7 +13,7 @@ from scipy.stats import norm
 
 # === Baseline data
 # =================
-# placing - the estimators gievn by Udacity - into a dictionary
+# placing the estimators gievn by Udacity into a dictionary
 baseline = {"Cookies":40000,"Clicks":3200,"Enrollments":660,"CTP":0.08,"GConversion":0.20625,
            "Retention":0.53,"NConversion":0.109313}
 
