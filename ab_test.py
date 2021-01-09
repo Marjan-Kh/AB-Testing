@@ -1,10 +1,10 @@
-# This program provides a walkthrough of the A/B testing course's final
-# project provided by Udacity in collaboration with Google.
+# This program provides a walkthrough of the A/B testing
+# course's final project provided by Udacity.
 
-#======================================================================
+#========================================================
 # Author: Marjan Khamesian
 # Date: January 2021
-#======================================================================
+#========================================================
 
 import math as mt
 import numpy as np
@@ -96,3 +96,54 @@ NC["SampSize"]
 NC["SampSize"]=NC["SampSize"]/0.08*2
 NC["SampSize"]
 
+# === Analyzing the Experiment Results
+# loading the dataset 
+control=pd.read_csv("../input/control-data/control_data.csv")
+experiment=pd.read_csv("../input/experiment-data/experiment_data.csv")
+control.head()
+
+# Number of rows in the control & experiment dataset
+control.shape[0]
+experiment.shape[0]
+
+# Number of cookies who viewed the course overview page
+pageviews_cont=control['Pageviews'].sum()
+pageviews_exp=experiment['Pageviews'].sum()
+pageviews_total=pageviews_cont+pageviews_exp
+print ("number of pageviews in control:", pageviews_cont)
+print ("number of Pageviewsin experiment:" ,pageviews_exp)
+
+# Number of cookies who viewed the course overview page: Is p_hat within confidence interval range?
+p=0.5
+alpha=0.05
+# Probability of the event to occur
+p_hat=round(pageviews_cont/(pageviews_total),4)
+# Sample size
+n = pageviews_total
+# Standard deviation
+sd = mt.sqrt(p*(1-p)/n)
+# Margin of error
+ME = round(get_z_score(1-(alpha/2))*sd,4)
+print ("The confidence interval is between",p-ME,"and",p+ME)
+#------------------------------------------------------------------------------------------------
+# Number of cookies who clicked the Free Trial Button: Is p_hat within confidence interval range?
+clicks_cont=control['Clicks'].sum()
+clicks_exp=experiment['Clicks'].sum()
+clicks_total=clicks_cont+clicks_exp
+
+p_hat=round(clicks_cont/clicks_total,4)
+sd=mt.sqrt(p*(1-p)/clicks_total)
+ME=round(get_z_score(1-(alpha/2))*sd,4)
+print ("The confidence interval is between",p-ME,"and",p+ME)
+#-----------------------------------------------------------------------------------------------
+# Click-through-probability of the Free Trial Button: Is d_hat within confidence interval range?
+ctp_cont=clicks_cont/pageviews_cont
+ctp_exp=clicks_exp/pageviews_exp
+
+d_hat=round(ctp_exp-ctp_cont,4)
+p_pooled=clicks_total/pageviews_total
+sd_pooled=mt.sqrt(p_pooled*(1-p_pooled)*(1/pageviews_cont+1/pageviews_exp))
+ME=round(get_z_score(1-(alpha/2))*sd_pooled,4)
+print ("The confidence interval is between",0-ME,"and",0+ME)
+#-----------------------------------------------------------------------------------------------
+# Examining effect size
