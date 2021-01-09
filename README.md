@@ -1,4 +1,4 @@
-# A/B-Testing Project Instructions:
+# A/B-Testing Project:
 This program provides a walkthrough of the A/B testing course's final project provided by an online learning platform named Udacity. 
 The primary goal of Udacity is to decrease early cancellation to improve the overall student experience and coaches' capacity to support students who are likely to complete the course.
 
@@ -49,4 +49,28 @@ Evaluation metrics can be chosen on the basis of business needs. We expect the f
 #### Experiment Sizing
 Given α=0.05 and β=0.2, we want to estimate how many pageviews total we need to collect in the experiment per metric. For that perpuse we need to calculate the minimum number of sample size (the minimum number of cookies) for each metric.  
 
+#### Analyzing the Experiment Results
+
+#### Sanity Checks
+- Check if the experiment is conducted as expected.
+- Confirm other factors did not influence data collected.
+
+#### For differences between counts:
+- Number of cookies who viewed the course overview page.
+- Number of cookies who clicked the "free trial" button.
+
+#### Sanity Checks for differences between probabilities:
+- Click-through-probability of the "free trial" button.
+
+#### For Practical and Statistical Significance:
+Next, for our evaluation metrics, we calculate a confidence interval for the difference between the experiment and control groups, and check whether each metric is statistically and/or practically significance. 
+
+- A metric is statistically significant if the confidence interval does not include 0 (that is, we can be confident there was a change), and it is practically significant if the confidence interval does not include the practical significance boundary (that is, we can be confident there is a change that matters to the business.)
+
+- If you have chosen multiple evaluation metrics, does that make those results more likely to occur by chance than the alpha level of 0.05?
+
+#### Sign Tests
+- Checking if the trend of change is evident in the daily data by computing the metric's value per day.
+- Then counting on how many days the metric is lower in the experiment group, which is equivalent of the number of succssesses for our binomial variable. 
+- At the end, we can look at the proportion of days of success out of all the available days.
 
