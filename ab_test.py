@@ -122,12 +122,16 @@ print ("number of pageviews in experiment:" ,pageviews_exp)
 # Number of cookies who viewed the course overview page: Is p_hat within confidence interval range?
 p = 0.5
 alpha = 0.05
+
 # Probability of the event to occur
 p_hat=round(pageviews_cont/(pageviews_total),4)
+
 # Sample size
 n = pageviews_total
+
 # Standard deviation
 sd = mt.sqrt(p*(1-p)/n)
+
 # Margin of error
 ME = round(get_z_score(1-(alpha/2))*sd,4)
 print ("The confidence interval is between",p-ME,"and",p+ME)
@@ -168,6 +172,7 @@ GC_pooled = (enrollments_cont+enrollments_exp)/(clicks_cont+clicks_exp)
 GC_sd_pooled = mt.sqrt(GC_pooled*(1-GC_pooled)*(1/clicks_cont+1/clicks_exp))
 GC_ME = round(get_z_score(1-alpha/2)*GC_sd_pooled,4)
 GC_diff = round(GC_exp-GC_cont,4)
+
 print("The change due to the experiment is",GC_diff*100,"%")
 print("Confidence Interval: [",GC_diff-GC_ME,",",GC_diff+GC_ME,"]")
 print ("The change is statistically significant if the CI doesn't include 0. In that case, it is practically significant if",-GC["d_min"],"is not in the CI as well.")
@@ -182,6 +187,7 @@ NC_pooled = (payments_cont+payments_exp)/(clicks_cont+clicks_exp)
 NC_sd_pooled = mt.sqrt(NC_pooled*(1-NC_pooled)*(1/clicks_cont+1/clicks_exp))
 NC_ME = round(get_z_score(1-alpha/2)*NC_sd_pooled,4)
 NC_diff = round(NC_exp-NC_cont,4)
+
 print("The change due to the experiment is",NC_diff*100,"%")
 print("Confidence Interval: [",NC_diff-NC_ME,",",NC_diff+NC_ME,"]")
 print ("The change is statistically significant if the CI doesn't include 0. In that case, it is practically significant if",NC["d_min"],"is not in the CI as well.")
@@ -196,12 +202,13 @@ full.count()
 full = full.loc[full["Enrollments_cont"].notnull()]
 full.count()
 
-# Deriving a new column for each metric, so we have it's daily values
-# We need a 1 if the experiment value is greater than the control value=
+# Deriving a new column for each metric to have it's daily values:
+# Gross Conversion
 x = full['Enrollments_cont']/full['Clicks_cont']
 y = full['Enrollments_exp']/full['Clicks_exp']
 full['GC'] = np.where(x<y,1,0)
-# The same now for net conversion
+
+# Net Conversion
 z = full['Payments_cont']/full['Clicks_cont']
 w = full['Payments_exp']/full['Clicks_exp']
 full['NC'] = np.where(z<w,1,0)
@@ -216,11 +223,11 @@ print("No. of cases for GC:",GC_x,'\n',
 
 # == Sign Test
 # ============
-# first a function for calculating probability of x=number of successes
+# Function for calculating probability of x = number of successes
 def get_prob(x,n):
     p = round(mt.factorial(n)/(mt.factorial(x)*mt.factorial(n-x))*0.5**x*0.5**(n-x),4)
     return p
-# next a function to compute the pvalue from probabilities of maximum x
+# Function to compute the pvalue from probabilities of maximum x
 def get_2side_pvalue(x,n):
     p = 0
     for i in range(0,x+1):
