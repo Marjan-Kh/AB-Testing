@@ -17,9 +17,8 @@ from scipy.stats import norm
 baseline = {"Cookies":40000,"Clicks":3200,"Enrollments":660,"CTP":0.08,"GConversion":0.20625,
            "Retention":0.53,"NConversion":0.109313}
 
-# == Estimating Standard Deviation
-# ================================
-# Scale The counts estimates
+# == Scaling Data
+# ===============
 baseline["Cookies"] = 5000
 baseline["Clicks"] = baseline["Clicks"]*(5000/40000)
 baseline["Enrollments"] = baseline["Enrollments"]*(5000/40000)
