@@ -10,7 +10,7 @@ At the time of this experiment, Udacity courses currently have two options on th
 
 - If the student clicks "access course materials", they will be able to view the videos and take the quizzes for free, but they will not receive coaching support or a verified certificate, and they will not submit their final project for feedback.
 
-#### Experiment Description
+### Experiment Description
 In the experiment, Udacity tested a change where if the student clicked "start free trial", they were asked how much time they had available to devote to the course. If the student indicated 5 or more hours per week, they would be taken through the checkout process as usual. If they indicated fewer than 5 hours per week, a message would appear indicating that Udacity courses usually require a greater time commitment for successful completion, and suggesting that the student might like to access the course materials for free. At this point, the student would have the option to continue enrolling in the free trial, or access the course materials for free instead. This screenshot shows what the experiment looks like.
 
 
@@ -20,7 +20,7 @@ This approach might not make a significant change and might not be effective in 
 #### Alternative Hypothesis
 This might reduce the number of frustrated students who left the free trial because they didn’t have enough time, without significantly reducing the number of students to continue past the free trial and eventually complete the course.
 
-#### Pre-experiment Analysis
+### Pre-experiment Analysis
 We need to perform a pre-experiment analysis before running the experiment:
 
 - Choosing the unit of diversion
@@ -30,28 +30,28 @@ We need to perform a pre-experiment analysis before running the experiment:
 #### Unit of diversion
 The unit of diversion is a cookie, although if the student enrolls in the free trial, they are tracked by user-id. The same user-id cannot enroll in the free trial twice. For users that do not enroll, their user-id is not tracked in the experiment, even if they were signed in when they visited the course overview page.
 
-#### Metric Choices: Invariant/Evaluation
+### Metric Choices: Invariant/Evaluation
 
-##### Invariant Metrics
+#### Invariant Metrics
 Invariant metrics are the ones used for sanity checks and will remain invariant throughout the experiment. In other words, we don't expect to change between control and experiment group.
 
 - Number of cookies: The number of unique cookies to view the course overview page.(dmin=3000 cookies)
 - Number of clicks: The number of unique cookies to click the “Start free trial” button.(dmin=240 clicks)
 - Click-through-probability: The number of unique cookies to click the “Start free trial” button divided by number of unique cookies to view the course overview page.(dmin=0.01)
 
-##### Evaluation Metrics
+#### Evaluation Metrics
 Evaluation metrics can be chosen on the basis of business needs. We expect the following metrics to be affected by the treatment and vary between control and experiment group. Each evaluation metric is marked by dmin, a minimum change that is significant to the business
 
 - Gross conversion: The number of user-ids to complete checkout and enroll in the free trial divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.01)
 - Retention: The number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by number of user-ids to complete checkout. (dmin=0.01)
 - Net conversion: The number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the “Start free trial” button. (dmin= 0.0075)
 
-#### Experiment Sizing
+### Experiment Sizing
 Given α=0.05 and β=0.2, we want to estimate how many pageviews total we need to collect in the experiment per metric. For that perpuse, we need to calculate the minimum number of sample size (the minimum number of cookies) for each metric.  
 
 ### Analyzing the Experiment Results
 
-#### Sanity Checks
+### Sanity Checks
 - Check if the experiment is conducted as expected.
 - Confirm other factors did not influence data collected.
 
