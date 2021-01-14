@@ -63,7 +63,7 @@ Given α=0.05 and β=0.2, we want to estimate how many pageviews total we need t
 - Click-through-probability of the "free trial" button.
 
 #### For Practical and Statistical Significance:
-Next, for our evaluation metrics, we calculate a confidence interval for the difference between the experiment and control groups, and check whether each metric is statistically and/or practically significance. 
+Next, for the evaluation metrics, we calculate a confidence interval for the difference between the experiment and control groups, and check whether each metric is statistically and/or practically significance. 
 
 - A metric is statistically significant if the confidence interval does not include 0 (that is, we can be confident there was a change), and it is practically significant if the confidence interval does not include the practical significance boundary (that is, we can be confident there is a change that matters to the business.)
 
